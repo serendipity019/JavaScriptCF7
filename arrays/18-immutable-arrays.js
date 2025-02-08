@@ -28,3 +28,11 @@ const updateOneItem = (arr, index, newValue) => arr.map((item, i) => (i === inde
 const updatedNumbers = updateOneItem(numbers, 2, 17);
 console.log(updatedNumbers);
 
+//Delete
+// This modifies the initial array
+let index = numbers.indexOf(1);
+if (index !== -1) numbers.splice(index, 1);
+//Fresh copy of deleted array
+const deleteFromArray = (arr, num) => arr.filter(item => item !== num);
+
+const deleteByIndex = (arr, index) => [...arr.slice(0, index), ...arr.slice(index + 1)]; 
