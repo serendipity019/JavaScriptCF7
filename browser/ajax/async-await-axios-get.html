@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async await with axios API</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.8.1/dist/axios.min.js"></script>
+</head>
+<body>
+    <button id="btn">Click me to get data</button>
+    <p id="output"></p>
+    
+    <script>
+        document .getElementById("btn").addEventListener('click', async () => {
+            try {
+                let response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
+                //Don't need these 2 in axios 
+                // if (!response.ok) throw new Error('Invalid response'); 
+                // let data = await response.json();
+                document.getElementById("output").innerHTML = `<b>Title:</b> ${response.data.title}
+                                                                <br><b>Body:</b> ${response.data.body}</br>` 
+            } catch (error) {
+                console.error("Get error", error)
+                document.getElementById("output").innerText = "Error fetching data";
+            }
+        })
+    </script>
+</body>
+</html>
