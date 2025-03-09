@@ -13,7 +13,7 @@
 
     <script> // Axios is simpler than fetch API
         function fetchOneObj() {
-            axios.get('https://jsonplaceholder.typicode.com/posts/1')
+            axios.get('https://jsonplaceholder.typicode.com/posts/100')
             .then(response => {
                 document.getElementById('responseText').innerHTML = `<b>Title:</b> ${response.data.title}`
             })
